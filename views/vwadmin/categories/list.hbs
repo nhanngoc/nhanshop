@@ -1,0 +1,68 @@
+ <!-- start  -->
+<div class="row">
+    <div class="col-12">
+        <div>
+            <h4 class="header-title mb-3">Loại sản phẩm</h4>
+        </div>
+        <div class="them" style="text-align: right;">
+            <a name="" id="" class="btn btn-primary btn-sm" style="text-align: right;" href="/admin/category/add" role="button" title="Thêm mới">Thêm mới
+               {{!--  <i class="fa fa-trash" aria-hidden="true"></i> --}}
+            </a>
+        </div>
+        <br>
+    </div>
+</div>
+<!-- end row -->
+{{#if this.empty}}
+<div class="row">
+    <div class="col-12">   
+        <div class="mt-5">
+            <h5 class="font-14">Chưa kết nối database</h5>
+            <p class="sub-header">
+                Không có loại nào
+            </p>
+        {{else}}
+            <table {{!-- id="datatable-buttons" --}} class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Mã loại</th>
+                        <th>Mã danh mục</th>
+                        <th>Tên loại</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+
+                <tbody name="myform">
+                        {{#each this.loaisp}}
+                    <tr>
+                        <td>{{MaLoai}}</td>
+                        <td>{{MaDM}}</td>
+                        <td>{{TenLoai}}</td>
+                        
+                        <td class="text-right">
+                            <a name="" id="" class="btn btn-primary btn-sm" href="/admin/category/edit/{{MaLoai}}" role="button" title="sửa loại">
+                                <i class="mdi mdi-border-color" aria-hidden="true"></i>
+                            </a>
+                            <a name="xoa" id="" class="btn btn-danger btn-sm" href="/admin/category/remove/{{MaLoai}}" role="button" title="xóa loại" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+
+                    {{#if err}}
+                    <div class="alert alert-danger text-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Bạn không thể xóa!</strong>{{err}}
+                    </div>
+                    {{/if}}
+            </tbody>
+            </table>
+            {{/if}}
+        </div>
+        <!-- end -->
+    </div>
+</div>
+<!-- end row -->

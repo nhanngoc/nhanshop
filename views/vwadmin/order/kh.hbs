@@ -1,0 +1,58 @@
+ <!-- start  -->
+<div class="row">
+    <div class="col-12">
+        <div>
+            <h4 class="header-title mb-3">Danh sách khách hàng</h4>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+{{#if this.empty}}
+<div class="row">
+    <div class="col-12">   
+        <div class="mt-5">
+            <h5 class="font-14">Chưa kết nối database</h5>
+            <p class="sub-header">
+                Không có loại nào
+            </p>
+        {{else}}
+            <table id="key-table" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Mã</th>
+                        <th>Tên</th>
+                        {{!-- <th>Tên đăng nhập</th>
+                        <th>pass</th> --}}
+                        <th>Email</th>
+                       
+                        {{!-- <th>Địa chỉ</th> --}}
+                        <th>Số điện thoại</th>
+                        <th>Đơn hàng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {{#each this.khachhang}}
+                    <tr>
+                        <td>{{MaKH}}</td>
+                        <td>{{tenkh}}</td>
+                        {{!-- <td>{{username}}</td>
+                        <td>{{password}}</td> --}}
+                        <td>{{email}}</td>
+                      
+                        {{!-- <td>{{diachi}}</td> --}}
+                        <td>{{sdt}}</td>
+                        <td>
+                            <a href="/admin/kh/hoadon/{{MaKH}}" title="xem đơn đặt hàng">
+                            Xem đơn đặt hàng
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+        </div>
+        <!-- end -->
+    </div>
+</div>
+<!-- end row -->

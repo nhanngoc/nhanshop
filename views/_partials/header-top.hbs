@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+</head>
+
+<body>
+    {{!-- margin-bottom: 50px;
+    #f5447b
+        text-align: center;
+    border-radius: 15px;
+    border: 1px solid #e7e7e7;
+    overflow: hidden; --}}
+    {{>header-mobile}}
+  
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+         
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> nnhann99@gmail.com</li>
+                                <li><i class="fa fa-phone"></i>+0337876016</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                       <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <form id="frmLogout" action="/account/logout" method="POST"></form>
+                        {{#if lcIsAuthenticated}}
+                            <nav class="header_register">
+                                <ul>  
+                                    <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>                      
+                                        <b>{{lcAuthUser.tenkh}}</b>!</a>
+                                        <ul class="header__menu__dropdown">
+                                            <li><a href="/account/profile"> 
+                                                <i class="fa fa-user" aria-hidden="true">
+                                                </i>Trang cá nhân</a>
+                                            </li>
+                                            <li> <a href="javascript: $('#frmLogout').submit()">
+                                                <i class="fa fa-sign-out" aria-hidden="true">Đăng xuất
+                                                </i>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        {{else}}
+                           <div class="header__top__right">    
+                             <div class="header__top__right__auth">
+                                <a href="/account/register"><i class="fa fa-user-plus"></i> Đăng ký</a>
+                            </div>
+                            <div class="header__top__right__language">                  
+                                <div>
+                                </div>                               
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="/account/login"><i class="fa fa-user"></i> Đăng nhập</a>
+                            </div>
+                        </div>
+                        {{/if}}   
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="background: #f5447b; height: 50px; margin-bottom: 50px;">
+                <div class="col-lg-2">
+                     <div class="header__logo">
+                        <a href="/"><img src="/public/image/logo.png" alt="" style="height: 50px; "></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class=" header__menu">
+                        <ul>
+                            <li class="active"><a href="/">Trang chủ</a></li>
+                            <li><a href="/products/list">Sản phẩm</a></li>
+                             <li><a href="#">Bé Gái ▾
+                                <ul class="header__menu__dropdown ">
+                                    {{#each lcCategories}}
+                                       <li><a href="/products/do-be-gai/{{MaLoai}}"
+                                            class="{{#if isActive}}active{{/if}}">
+                                            {{TenLoai}}
+                                            {{#if num_of_products}}
+                                            <span class="badge badge-danger float-right">{{num_of_products}}</span>
+                                            {{/if}}
+                                        </a></li>
+                                    {{/each}}                                 
+                                </ul>
+                            </li>
+                             <li><a href="#">Bé Trai ▾
+                                <ul class="header__menu__dropdown">
+                                    {{#each lcCategories1}}
+                                       <li><a href="/products/danhmuc1/{{MaLoai}}"
+                                            class="{{#if isActive}}active{{/if}}">
+                                            {{TenLoai}}
+                                            {{#if num_of_products}}
+                                            <span class="badge badge-danger float-right">{{num_of_products}}</span>
+                                            {{/if}}
+                                        </a></li>
+                                    {{/each}}                                 
+                                </ul>
+                            </li>
+
+                             <li><a href="#">Phụ Kiện ▾
+                                <ul class="header__menu__dropdown">
+                                    {{#each lcCategories2}}
+                                       <li><a href="/products/danhmuc2/{{MaLoai}}"
+                                            class="{{#if isActive}}active{{/if}}">
+                                            {{TenLoai}}
+                                            {{#if num_of_products}}
+                                            <span class="badge badge-danger float-right">{{num_of_products}}</span>
+                                            {{/if}}
+                                        </a></li>
+                                    {{/each}}                                 
+                                </ul>
+                            </li>
+                           
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3" style="padding: 5px 0;">
+                    <form class="input-group" method="GET" action="/search" >
+                        <input class="form-control" name="TenSP" type="text" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="input-group-append">
+                           <button class="btn btn-secondary" type="submit" style="background-color: #7fad39; border-color:#f26522 ">
+                           <i class="fa fa-search"></i>
+                           </button>
+                        </div>
+                     </form>
+                </div>
+                <div class="col-lg-1">
+                    
+                    <div class="header__cart">
+                         <!-- Another variation with a button -->
+                     
+                        <ul>
+                            {{!-- <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li> --}}
+                            
+                            <li><a href="/shop_cart"><i class="fa fa-shopping-cart"></i> <span>{{session.cart.totalItems}}</span></a></li>
+                        </ul>
+                        
+                        {{!-- <div class="header__cart__price">item: <span>$150.00</span></div> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        
+        
+    </header>
+    <!-- Header Section End -->
+
+ 
+    {{!-- {{>seach}} --}}
+
+
+    <!-- Categories Section Begin -->
+    
+    <!-- Categories Section End -->
+
+    <!-- Featured Section Begin -->
+   
+    <!-- Featured Section End -->
+
+    <!-- Banner Begin -->
+   
+    <!-- Banner End -->
+
+    <!-- Latest Product Section Begin -->
+   
+    <!-- Latest Product Section End -->
+
+    <!-- Blog Section Begin -->
+  
+    <!-- Blog Section End -->
+
+    <!-- Footer Section Begin -->
+   
+    <!-- Footer Section End -->
+
+
+
+
+</body>
+
+</html>

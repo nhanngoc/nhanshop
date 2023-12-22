@@ -1,5 +1,5 @@
 const express = require("express");
-const config = require("./config/default.json");
+// const config = require("./config/default.json");
 const mysql = require("mysql");
 const favicon = require('serve-favicon');
 const path = require("path");
@@ -12,12 +12,12 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
 const userRoutes = require('./routes/user.route');
-
+require('dotenv').config();
 const connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '',
-	database : 'quanao'
+	host     : process.env.HOST,
+	user     : process.env.USER,
+	password : process.env.PASSWORD,
+	database : process.env.DATABASE
 });
 connection.connect();
 global.db = connection;
@@ -79,7 +79,7 @@ app.use(function (req, res) {
 });// thông báo lỗi
 
 //localhost
-const PORT = 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, function () {
   console.log("Server is running at http://localhost:3000");
 });

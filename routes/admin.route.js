@@ -87,7 +87,7 @@ router.get("/attribute/list", restrict.admin, async function (req, res) {
   for (let i = 0; i < list.length; i++) {
     const cls = []; //đỏ, xanh
     for (let j = 0; j < colors.length; j++) {
-      if (list[i].MaSP == colors[j].masp) {
+      if (list[i].masp == colors[j].masp) {
         //nếu 2 màu
         const sizesl = []; //nhiều size
         for (let k = 0; k < sizes.length; k++) {
@@ -107,15 +107,15 @@ router.get("/attribute/list", restrict.admin, async function (req, res) {
       }
     }
     const sp = {
-      MaSP: list[i].MaSP,
+      masp: list[i].masp,
       TenSP: list[i].TenSP,
       Anh: list[i].Anh,
-      SoLuongBan: list[i].SoLuongBan,
+      soluongban: list[i].soluongban,
       Gia: list[i].Gia,
-      MoTa: list[i].MoTa,
+      mota: list[i].mota,
       chatlieu: list[i].chatlieu,
-      TinhTrang: list[i].TinhTrang,
-      NgayNhap: list[i].NgayNhap,
+      tinhtrang: list[i].tinhtrang,
+      ngaynhap: list[i].ngaynhap,
       thuoctinh: cls, //thuoctinh:đỏ[size,soluong] color, size, soluong
     };
     console.log("spmoi", sp);
@@ -141,7 +141,7 @@ router.get("/attribute/add", restrict.admin, async function (req, res) {
   for (let i = 0; i < list.length; i++) {
     const cls = []; //đỏ, xanh
     for (let j = 0; j < colors.length; j++) {
-      if (list[i].MaSP == colors[j].masp) {
+      if (list[i].masp == colors[j].masp) {
         //nếu 2 màu
         const sizesl = []; //nhiều size
         for (let k = 0; k < sizes.length; k++) {
@@ -160,7 +160,7 @@ router.get("/attribute/add", restrict.admin, async function (req, res) {
       }
     }
     const sp = {
-      MaSP: list[i].MaSP,
+      masp: list[i].masp,
       TenSP: list[i].TenSP,
       SoLuong: list[i].SoLuong,
       //Gia:list[i].Gia,
@@ -184,7 +184,7 @@ router.post("/attribute/add", restrict.admin, async function (req, res) {
   for (let i = 0; i < size_ids.length; i++) {
     for (let j = 0; j < sl.length; j++) {
       if (i == j) {
-        const masp = req.body.MaSP;
+        const masp = req.body.masp;
         const color_id = req.body.color_id;
         const size_id = size_ids[i];
         const soluong = sl[j];
@@ -296,7 +296,7 @@ router.get("/category/remove/:id", restrict.admin, async function (req, res) {
   const distinct = await Model.distinct_category();
   const list = await Model.all_category();
   for (let i = 0; i < distinct.length; i++) {
-    if (distinct[i].MaLoai == id) {
+    if (distinct[i].maloai == id) {
       return res.render("vwadmin/categories/list", {
         err: "Vì sự ràng buộc dữ liệu.",
         layout: "admin",

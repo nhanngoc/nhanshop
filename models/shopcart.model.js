@@ -1,6 +1,6 @@
 //const { delete } = require("../routes/category.route");
 const db = require("../utils/db");
-const tbl_products = "Sanpham";
+const tbl_products = "sanpham";
 const data = [];
 
 module.exports = {
@@ -19,21 +19,21 @@ module.exports = {
     );
   },
   //sua
-  single: function (MaKH) {
-    return db.load(`select *from ${tbl_Users} where MaKH =${MaKH}`);
+  single: function (makh) {
+    return db.load(`select *from ${tbl_Users} where makh =${makh}`);
   },
 
   //capnhat
   patch: function (entity) {
     const condition = {
-      MaKH: entity.MaKH,
+      makh: entity.makh,
     };
-    delete entity.MaKH;
+    delete entity.makh;
     return db.patch(tbl_Users, entity, condition);
   },
   //xoa
-  del: function (MaKH) {
-    const condition = { MaKH };
+  del: function (makh) {
+    const condition = { makh };
     return db.del(tbl_Users, condition);
   },
 };

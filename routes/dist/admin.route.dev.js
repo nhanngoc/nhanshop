@@ -188,7 +188,7 @@ router.get("/attribute/list", restrict.admin, function _callee4(req, res) {
             cls = []; //đỏ, xanh
 
             for (j = 0; j < colors.length; j++) {
-              if (list[i].MaSP == colors[j].masp) {
+              if (list[i].masp == colors[j].masp) {
                 //nếu 2 màu
                 sizesl = []; //nhiều size
 
@@ -209,15 +209,15 @@ router.get("/attribute/list", restrict.admin, function _callee4(req, res) {
             }
 
             sp = {
-              MaSP: list[i].MaSP,
+              masp: list[i].masp,
               TenSP: list[i].TenSP,
               Anh: list[i].Anh,
-              SoLuongBan: list[i].SoLuongBan,
+              soluongban: list[i].soluongban,
               Gia: list[i].Gia,
-              MoTa: list[i].MoTa,
+              mota: list[i].mota,
               chatlieu: list[i].chatlieu,
-              TinhTrang: list[i].TinhTrang,
-              NgayNhap: list[i].NgayNhap,
+              tinhtrang: list[i].tinhtrang,
+              ngaynhap: list[i].ngaynhap,
               thuoctinh: cls //thuoctinh:đỏ[size,soluong] color, size, soluong
 
             };
@@ -283,7 +283,7 @@ router.get("/attribute/add", restrict.admin, function _callee5(req, res) {
             cls = []; //đỏ, xanh
 
             for (j = 0; j < colors.length; j++) {
-              if (list[i].MaSP == colors[j].masp) {
+              if (list[i].masp == colors[j].masp) {
                 //nếu 2 màu
                 sizesl = []; //nhiều size
 
@@ -303,7 +303,7 @@ router.get("/attribute/add", restrict.admin, function _callee5(req, res) {
             }
 
             sp = {
-              MaSP: list[i].MaSP,
+              masp: list[i].masp,
               TenSP: list[i].TenSP,
               SoLuong: list[i].SoLuong,
               //Gia:list[i].Gia,
@@ -342,7 +342,7 @@ router.post("/attribute/add", restrict.admin, function _callee6(req, res) {
           for (i = 0; i < size_ids.length; i++) {
             for (j = 0; j < sl.length; j++) {
               if (i == j) {
-                masp = req.body.MaSP;
+                masp = req.body.masp;
                 color_id = req.body.color_id;
                 size_id = size_ids[i];
                 soluong = sl[j];
@@ -678,7 +678,7 @@ router.get("/category/remove/:id", restrict.admin, function _callee19(req, res) 
             break;
           }
 
-          if (!(distinct[i].MaLoai == id)) {
+          if (!(distinct[i].maloai == id)) {
             _context19.next = 11;
             break;
           }

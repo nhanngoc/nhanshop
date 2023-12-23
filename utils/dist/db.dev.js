@@ -54,7 +54,7 @@ module.exports = {
   //them nhieu hinh anh anhct/////////////////////
   insert_mutilfile: function insert_mutilfile(entity) {
     return new Promise(function (resolve, reject) {
-      var sql = "insert into anhct(MaSP, anh_ten) VALUES ?";
+      var sql = "insert into anhct(masp, anh_ten) VALUES ?";
       pool.query(sql, [entity], function (error, results) {
         if (error) {
           return reject(error);

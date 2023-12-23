@@ -15,7 +15,7 @@
               <a href="javascript:void()"> <p>Quần áo bé gái</p> </a> <a href="javascript:void(0)" class="menucat expan_navi"><i class="icon-sort-down icon-up"></i></a>
               <ul class="sub-navi">
                 {{#each lcCategories}}
-                <li><a href="/products/do-be-trai/{{MaLoai}}" title="{{TenLoai}}">{{TenLoai}}</a></li>
+                <li><a href="/products/do-be-trai/{{maloai}}" title="{{tenloai}}">{{tenloai}}</a></li>
                 {{/each}}
               </ul> 
             </li>
@@ -24,7 +24,7 @@
               <a href="javascript:void()"> <p>Quần áo bé trai</p> </a> <a href="javascript:void(0)" class="menucat expan_navi"><i class="icon-sort-down icon-up"></i></a>
               <ul class="sub-navi"> 
                 {{#each lcCategories1}}
-                <li><a href="/products/do-be-trai/{{MaLoai}}" title="{{TenLoai}}">{{TenLoai}}</a></li>
+                <li><a href="/products/do-be-trai/{{maloai}}" title="{{tenloai}}">{{tenloai}}</a></li>
                 {{/each}} 
               </ul>
             </li>
@@ -34,7 +34,7 @@
               <a href="javascript:void()"> <p>Phụ kiện trẻ em</p> </a> <a href="javascript:void(0)" class="menucat expan_navi"><i class="icon-sort-down icon-up"></i></a> 
               <ul class="sub-navi"> 
                 {{#each lcCategories2}}
-                <li><a href="/products/do-be-trai/{{MaLoai}}" title="{{TenLoai}}">{{TenLoai}}</a></li>
+                <li><a href="/products/do-be-trai/{{maloai}}" title="{{tenloai}}">{{tenloai}}</a></li>
                 {{/each}} 
               </ul> 
             </li> --}}
@@ -137,9 +137,9 @@
                 <a href="javascript:void(0)" class=" "><i class="icon-sort-down icon-up"></i></a>
                 <div class="child_cat_main" style="display: none;">
                     {{#each lcCategories}}
-                    <a href="/products/do-be-gai/{{MaLoai}}"
+                    <a href="/products/do-be-gai/{{maloai}}"
                         class="{{#if isActive}}active{{/if}}">
-                        {{TenLoai}}
+                        {{tenloai}}
                         {{!-- {{#if num_of_products}}
                         <span class="badge badge-danger float-right">{{num_of_products}}</span>
                         {{/if}} --}}
@@ -154,9 +154,9 @@
                   <a href="javascript:void(0)" class=" "><i class="icon-sort-down icon-up"></i></a>
                    <div class="child_cat_main" style="display: none;">
                        {{#each lcCategories1}}
-                            <a href="/products/do-be-trai/{{MaLoai}}"
+                            <a href="/products/do-be-trai/{{maloai}}"
                                 class="{{#if isActive}}active{{/if}}">
-                                {{TenLoai}}
+                                {{tenloai}}
                                 {{!-- {{#if num_of_products}}
                                 <span class="badge badge-danger float-right">{{num_of_products}}</span>
                                 {{/if}} --}}
@@ -175,9 +175,9 @@
                   <a href="javascript:void(0)" class=" "><i class="icon-sort-down icon-up"></i></a>
                    <div class="child_cat_main" style="display: none;">
                         {{#each lcCategories2}}
-                            <a href="/products/phu-kien/{{MaLoai}}"
+                            <a href="/products/phu-kien/{{maloai}}"
                                 class="{{#if isActive}}active{{/if}}">
-                                {{TenLoai}}
+                                {{tenloai}}
                                 {{#if num_of_products}}
                                 <span class="badge badge-danger float-right">{{num_of_products}}</span>
                                 {{/if}}
@@ -216,7 +216,7 @@
           <tbody>
             {{#each session.cart.items }}
             <tr>
-              <td class="mini-cart-name colorwhite m_colorwhite"><a class="colorwhite" href="/products/detail/{{this.item.MaSP}}"><img src="/public/images/{{this.item.anh}}" style="float:left;margin-right:5px" width="47" height="47"></a>
+              <td class="mini-cart-name colorwhite m_colorwhite"><a class="colorwhite" href="/products/detail/{{this.item.masp}}"><img src="/public/images/{{this.item.anh}}" style="float:left;margin-right:5px" width="47" height="47"></a>
                   <span class="m_cart_p_name">{{this.item.tensp}}</span>
                 - <small>{{this.item.color}}: {{this.item.size}}</small><br>
               </td>

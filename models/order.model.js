@@ -18,18 +18,18 @@ module.exports = {
   },
   //thông tin bảng khách hàng
   all_kh_makh: function (makh) {
-    return db.load(`select *from khachhang WHERE MaKH=${makh}`);
+    return db.load(`select *from khachhang WHERE makh=${makh}`);
   },
    //sua thông tin tài khoản
    single_kh: function (makh) {
-    return db.load(`SELECT * FROM khachhang WHERE MaKH=${makh}`);
+    return db.load(`SELECT * FROM khachhang WHERE makh=${makh}`);
   },
   //capnhat thông tin tài khoản
   update_khachhang: function (entity) {
     const condition = {
-      MaKH: entity.MaKH,
+      makh: entity.makh,
     };
-    delete entity.MaKH;
+    delete entity.makh;
     return db.update_kh(tbl_kh, entity, condition);
   },
   //thông tin hóa đơn theo mã khách hàng
@@ -125,7 +125,7 @@ module.exports = {
   all_order_ct: function (mahd) {
     return db.load(`SELECT ct.*, hd.*, sp.Anh,sp.TenSP,sp.Gia,sp.chatlieu
     FROM ((chitiethd ct INNER JOIN hoadon hd ON ct.mahd=hd.mahd)
-        INNER JOIN sanpham sp ON ct.masp=sp.MaSP)
+        INNER JOIN sanpham sp ON ct.masp=sp.masp)
     WHERE hd.mahd=${mahd}`);
   },
   // lấy thông tin hóa đơn theo mã hóa đơn

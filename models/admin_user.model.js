@@ -19,14 +19,14 @@ module.exports = {
   //ds sản phẩm chưa có thuộc tính
   _products: function () {
     return db.load(`SELECT sp.*, ct.*
-    FROM sanpham AS sp LEFT JOIN sanphamct AS ct ON ct.masp=sp.MaSP
+    FROM sanpham AS sp LEFT JOIN sanphamct AS ct ON ct.masp=sp.masp
     WHERE ct.sp_id IS NULL `);
   },
   //ds sản phẩm có thuộc tính
   //
   attr_products: function () {
     return db.load(`SELECT DISTINCT sp.*
-    FROM sanpham AS sp INNER JOIN sanphamct AS ct ON ct.masp=sp.MaSP order by sp.MaSP DESC`);
+    FROM sanpham AS sp INNER JOIN sanphamct AS ct ON ct.masp=sp.masp order by sp.masp DESC`);
   },
   //ds màu và masp
   distinct_colors: function () {
@@ -71,12 +71,12 @@ module.exports = {
   },
    // lấy id sản phẩm
    id_sp: async function () {
-    const rows = await db.load(`SELECT  MaSP FROM ${tbl_sp} ORDER BY sanpham.MaSP DESC LIMIT 1`);
-    return rows[0].MaSP;
+    const rows = await db.load(`SELECT  masp FROM ${tbl_sp} ORDER BY sanpham.masp DESC LIMIT 1`);
+    return rows[0].masp;
   },
   //remove products attribute
   remove_attr: function (id) {
-    return db.load(`delete from ${tbl_spct} where MaSP =${id}`);
+    return db.load(`delete from ${tbl_spct} where masp =${id}`);
   },
    //remove attr detail
    remove_attr_detail: function (id) {
@@ -84,15 +84,15 @@ module.exports = {
   },
   //remove products
   remove_pro: function (id) {
-    return db.load(`delete from ${tbl_sp} where MaSP =${id}`);
+    return db.load(`delete from ${tbl_sp} where masp =${id}`);
   },
   //remove anhct
   remove_anhct: function (id) {
-    return db.load(`delete from anhct where MaSP =${id}`);
+    return db.load(`delete from anhct where masp =${id}`);
   },
   //sua products
   single_pro: function (id) {
-    return db.load(`select *from ${tbl_sp} where MaSP =${id}`);
+    return db.load(`select *from ${tbl_sp} where masp =${id}`);
   },
   //sua products attribute
   single_attr_ct: function (id) {
@@ -123,42 +123,42 @@ module.exports = {
    //capnhat products attribute
    patch_attr: function (entity) {
     const condition = {
-      MaSP: entity.MaSP,
+      masp: entity.masp,
     };
-    delete entity.MaSP;
+    delete entity.masp;
     return db.update_attr(tbl_sp, entity, condition);
   },
   //capnhat products
   patch_pro: function (entity) {
     const condition = {
-      MaSP: entity.MaSP,
+      masp: entity.masp,
     };
-    delete entity.MaSP;
+    delete entity.masp;
     return db.update_pro(tbl_sp, entity, condition);
   },
 
   //xoa products
   del: function (id) {
     const condition = {
-      MaSP: id,
+      masp: id,
     };
     return db.delete_pro(tbl_sp, condition);
   },
   //lấy danh giảm giá
   all_gg: function () {
     return db.load(`select gg.*,sp.TenSP,sp.Anh,sp.Gia from giamgia gg 
-    INNER JOIN sanpham sp ON gg.makm=sp.MaSP`);
+    INNER JOIN sanpham sp ON gg.makm=sp.masp`);
   },
   //all sản phẩm chưa khuyến mãi
   all_sp_gg: function () {
     return db.load(`SELECT sp.*
-    FROM sanpham sp LEFT JOIN giamgia gg ON gg.makm=sp.MaSP
+    FROM sanpham sp LEFT JOIN giamgia gg ON gg.makm=sp.masp
     WHERE gg.makm IS NULL
-    order by sp.MaSP DESC`);
+    order by sp.masp DESC`);
   },
   //all sản phẩm chưa khuyến mãi
   id_sp_gg: function (id) {
-    return db.load(`SELECT * FROM sanpham WHERE MaSP=${id}`);
+    return db.load(`SELECT * FROM sanpham WHERE masp=${id}`);
   },
   //Thêm mới giảm giá
   add_gg: function (entity) {
@@ -167,7 +167,7 @@ module.exports = {
   //sua
   single_gg: function (id) {
     return db.load(`select gg.*,sp.* from giamgia gg 
-    INNER JOIN sanpham sp ON gg.makm=sp.MaSP where makm =${id}`);
+    INNER JOIN sanpham sp ON gg.makm=sp.masp where makm =${id}`);
   },
   //capnhat
   update_gg: function (entity) {
@@ -186,14 +186,14 @@ module.exports = {
   //// Start loại ////
   //lấy danh sách loại
   distinct_category: function () {
-    return db.load(`SELECT DISTINCT sanpham.MaLoai FROM sanpham`);
+    return db.load(`SELECT DISTINCT sanpham.maloai FROM sanpham`);
   },
   all_category: function () {
-    return db.load(`SELECT * FROM ${tbl_loai} WHERE loaisp.MaDM IN(0,1)`);
+    return db.load(`SELECT * FROM ${tbl_loai} WHERE loaisp.madm IN(0,1)`);
   }, 
   //lấy danh sách danh mục
   all_dm: function () {
-    return db.load(`SELECT * FROM danhmuc WHERE MaDM IN(0,1)`);
+    return db.load(`SELECT * FROM danhmuc WHERE madm IN(0,1)`);
   },
     //Thêm mới loại
   add_loai: function (entity) {
@@ -201,19 +201,19 @@ module.exports = {
   },
   //sua
   single_loai: function (id) {
-    return db.load(`SELECT * FROM ${tbl_loai} WHERE MaLoai=${id}`);
+    return db.load(`SELECT * FROM ${tbl_loai} WHERE maloai=${id}`);
   },
   //capnhat
   update_loai: function (entity) {
     const condition = {
-      MaLoai: entity.MaLoai,
+      maloai: entity.maloai,
     };
-    delete entity.MaLoai;
+    delete entity.maloai;
     return db.update_loai(tbl_loai, entity, condition);
   },
   //xoa
   remove_loai: function (id) {
-    return db.load(`delete from ${tbl_loai} where MaLoai=${id}`);
+    return db.load(`delete from ${tbl_loai} where maloai=${id}`);
   },
   //// End loại ////
 

@@ -11,8 +11,8 @@ module.exports = {
     return db.load("select *from ".concat(tbl_Users));
   },
   //
-  all_id: function all_id(MaKH) {
-    return db.load("select *from ".concat(tbl_Users, " where MaKH =").concat(MaKH));
+  all_id: function all_id(makh) {
+    return db.load("select *from ".concat(tbl_Users, " where makh =").concat(makh));
   },
   //them username khách hàng
   add_kh: function add_kh(entity) {
@@ -49,21 +49,21 @@ module.exports = {
     });
   },
   //sua
-  single: function single(MaKH) {
-    return db.load("select *from ".concat(tbl_Users, " where MaKH =").concat(MaKH));
+  single: function single(makh) {
+    return db.load("select *from ".concat(tbl_Users, " where makh =").concat(makh));
   },
   //capnhat
   patch: function patch(entity) {
     var condition = {
-      MaKH: entity.MaKH
+      makh: entity.makh
     };
-    delete entity.MaKH;
+    delete entity.makh;
     return db.update_kh(tbl_Users, entity, condition);
   },
   //xoa
-  del: function del(MaKH) {
+  del: function del(makh) {
     var condition = {
-      MaKH: MaKH
+      makh: makh
     };
     return db.delete_kh(tbl_Users, condition);
   }

@@ -1,5 +1,5 @@
 const express = require("express");
-// const config = require("./config/default.json");
+
 const mysql = require("mysql");
 const favicon = require('serve-favicon');
 const path = require("path");
@@ -12,15 +12,15 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
 const userRoutes = require('./routes/user.route');
-require('dotenv').config();
-const connection = mysql.createConnection({
-	host     : process.env.HOST,
-	user     : process.env.USER,
-	password : process.env.PASSWORD,
-	database : process.env.DATABASE
-});
-connection.connect();
-global.db = connection;
+// require('dotenv').config();
+// const connection = mysql.createConnection({
+// 	host     : process.env.HOST,
+// 	user     : process.env.USER,
+// 	password : process.env.PASSWORD,
+// 	database : process.env.DATABASE
+// });
+// connection.connect();
+// global.db = connection;
 //
 const app = express();
 // Cho phép lý dữ liệu từ form method POST

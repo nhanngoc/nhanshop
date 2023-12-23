@@ -35,15 +35,15 @@
                 <tbody name="myform">
                         {{#each this.loaisp}}
                     <tr>
-                        <td>{{MaLoai}}</td>
-                        <td>{{MaDM}}</td>
-                        <td>{{TenLoai}}</td>
+                        <td>{{maloai}}</td>
+                        <td>{{madm}}</td>
+                        <td>{{tenloai}}</td>
                         
                         <td class="text-right">
-                            <a name="" id="" class="btn btn-primary btn-sm" href="/admin/category/edit/{{MaLoai}}" role="button" title="sửa loại">
+                            <a name="" id="" class="btn btn-primary btn-sm" href="/admin/category/edit/{{maloai}}" role="button" title="sửa loại">
                                 <i class="mdi mdi-border-color" aria-hidden="true"></i>
                             </a>
-                            <a name="xoa" id="" class="btn btn-danger btn-sm" href="/admin/category/remove/{{MaLoai}}" role="button" title="xóa loại" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                            <a name="xoa" id="" class="btn btn-danger btn-sm" href="/admin/category/remove/{{maloai}}" role="button" title="xóa loại" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
                         </td>

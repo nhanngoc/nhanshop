@@ -2,7 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const productModel = require("../models/product.model");
 const db = require("../utils/db");
-const tbl_products = "Sanpham";
+const tbl_products = "sanpham";
 const mysql = require('mysql');
 const router = express.Router();
 

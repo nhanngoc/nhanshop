@@ -13,7 +13,7 @@ router.get("/", async function (req, res) {
   const gg = [];
   for (let i = 0; i < giamgia.length; i++) {
     const item = {
-      MaSP: giamgia[i].makm,
+      masp: giamgia[i].makm,
       TenSP: giamgia[i].TenSP,
       Anh: giamgia[i].Anh,
       Gia: giamgia[i].Gia, //giá củ 185 b
@@ -37,7 +37,7 @@ router.get("/", async function (req, res) {
 //get home_page
 router.get("/page", async function (req, res) {
   for (const c of res.locals.lcCategories) {
-    if (c.MaLoai === +req.params.MaLoai) {
+    if (c.maloai === +req.params.maloai) {
       c.isActive = true;
     }
   }
@@ -103,7 +103,7 @@ router.post("/cart/:id", async function (req, res) {
   for (let i = 0; i < gg.length; i++) {
     if (productId == gg[i].makm) {
       const product = {
-        masp: rows[0].MaSP,
+        masp: rows[0].masp,
         tensp: rows[0].TenSP,
         anh: rows[0].Anh,
         size: rows[0].size,
@@ -121,7 +121,7 @@ router.post("/cart/:id", async function (req, res) {
     }
   }
   const product = {
-    masp: rows[0].MaSP,
+    masp: rows[0].masp,
     tensp: rows[0].TenSP,
     anh: rows[0].Anh,
     size: rows[0].size,
@@ -230,10 +230,10 @@ router.post("/checkout", async function (req, res, next) {
   const tinh = req.body.tinh;
   var today = new Date();
   var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-  //user lưu maKH, ngayHD, tenNN, diachi, ngaynhan, soluong:cart.totalItems, tongtien:cart.totalPrice vào hoadon
+  //user lưu makh, ngayHD, tenNN, diachi, ngaynhan, soluong:cart.totalItems, tongtien:cart.totalPrice vào hoadon
   const entity = {
     ngayhd: date,
-    makh: user.MaKH,
+    makh: user.makh,
     tennn: req.body.tennn,
     sdt: req.body.sdt,
     diachi: diachi + ", " + phuong + ", " + quan + ", " + tinh,
@@ -243,7 +243,7 @@ router.post("/checkout", async function (req, res, next) {
     trangthai: "Chờ xác nhận",
   };
   await ModelOrder.add_order(entity);
-  //cart lưu mahd, MaSP:cart.getItems.item.masp, TenSP:cart.getItems. gia:cart.getItems.gia soluong:cart.getItems.quantity vào chitiethd
+  //cart lưu mahd, masp:cart.getItems.item.masp, TenSP:cart.getItems. gia:cart.getItems.gia soluong:cart.getItems.quantity vào chitiethd
   const idhd = await ModelOrder.id_order();
   let arrlist = [];
   for (let i = 0; i < new_sp.length; i++) {

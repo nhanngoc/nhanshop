@@ -279,17 +279,17 @@
                             <div class="form-group">
                                 <div class="col-md-9">
                                     <h6 class="font-14 mt-3">Chọn sản phẩm:</h6>
-                                <select class="form-control" data-toggle="select2" id="txtMaSP" name="MaSP">
+                                <select class="form-control" data-toggle="select2" id="txtmasp" name="masp">
                                         {{!-- <option selected="">Chọn sản phẩm</option> --}}
                                         <optgroup label="Sản phẩm chưa có thuộc tính:">
                                         {{#each this.sanpham}}
-                                        <option value="{{MaSP}}">{{MaSP}}-{{TenSP}}</option>
+                                        <option value="{{masp}}">{{masp}}-{{TenSP}}</option>
                                         {{/each}}
                                         </optgroup>
                                         <optgroup label="Sản phẩm đã có thuộc tính:">
                                              {{#arrlist}}
                                             
-                                            <option value="{{MaSP}}">{{MaSP}}-{{TenSP}}-{{#thuoctinh}}{{#code}}{{color}} {{/code}}{{/thuoctinh}}</option>
+                                            <option value="{{masp}}">{{masp}}-{{TenSP}}-{{#thuoctinh}}{{#code}}{{color}} {{/code}}{{/thuoctinh}}</option>
                                             
                                             {{/arrlist}}
                                         </optgroup>

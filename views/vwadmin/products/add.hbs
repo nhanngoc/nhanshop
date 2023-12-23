@@ -23,10 +23,10 @@
                         {{/if}}
                         <div class="form-group">
                             <div class="col-md-9">
-                                <select class="custom-select mt-3"id="txtMaLoai" name="MaLoai">
+                                <select class="custom-select mt-3"id="txtmaloai" name="maloai">
                                     <option selected="">Chọn loại sản phẩm</option>
                                     {{#each this.loaisp}}
-                                    <option value="{{MaLoai}}">{{TenLoai}}</option>
+                                    <option value="{{maloai}}">{{tenloai}}</option>
                                     {{/each}}
                                 </select>
                             </div>
@@ -71,13 +71,13 @@
                         </div> --}}
                                                     
                         <div class="form-group">
-                            <label for="MoTa" class="col-md-3 control-label">Mô Tả</label>
+                            <label for="mota" class="col-md-3 control-label">Mô Tả</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="txtmota" name="MoTa" placeholder="Nhập mô tả">
+                                <input type="text" class="form-control" id="txtmota" name="mota" placeholder="Nhập mô tả">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="MoTa" class="col-md-3 control-label">Chất liệu</label>
+                            <label for="mota" class="col-md-3 control-label">Chất liệu</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="txtchatlieu" name="chatlieu" placeholder="Nhập chất liệu">
                             </div>
@@ -124,7 +124,7 @@
     </script>
     <script type="text/javascript">
         function kiemTraForm() {
-            var maloai = document.getElementById("txtMaLoai").value
+            var maloai = document.getElementById("txtmaloai").value
             var ten = document.getElementById("txtten").value 
             var image = document.getElementById("image").value
             var gia = document.getElementById("txtgia").value

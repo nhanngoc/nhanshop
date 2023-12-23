@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/list", async function (req, res) {
   //const list = await productModel.all();
   for (const c of res.locals.lcCategories) {
-    if (c.MaLoai === +req.params.MaLoai) {
+    if (c.maloai === +req.params.maloai) {
       c.isActive = true;
     }
   }
@@ -17,7 +17,7 @@ router.get("/list", async function (req, res) {
   if (page < 0) page = 1;
   const offset = (page - 1) * config.pagination.limit;
   const list = await productModel.pageByHome(
-    req.params.MaLoai,
+    req.params.maloai,
     config.pagination.limit,
     offset
   );
@@ -41,8 +41,8 @@ router.get("/list", async function (req, res) {
 });
 
 //detail
-router.get("/detail/:MaSP", async function (req, res) {
-  const id = req.params.MaSP;
+router.get("/detail/:masp", async function (req, res) {
+  const id = req.params.masp;
   const product = await productModel.detail_ct(id);
   const ggg = await productModel.detail_ggg();
   const data = ggg.filter(function (item) {
@@ -92,10 +92,10 @@ router.get("/detail/:MaSP", async function (req, res) {
 });
 
 //Get san pham loai
-router.get("/do-be-gai/:MaLoai", async function (req, res) {
-  const ten_loai = await productModel.tenloai(req.params.MaLoai);
+router.get("/do-be-gai/:maloai", async function (req, res) {
+  const ten_loai = await productModel.tenloai(req.params.maloai);
   for (const c of res.locals.lcCategories) {
-    if (c.MaLoai === +req.params.MaLoai) {
+    if (c.maloai === +req.params.maloai) {
       c.isActive = true;
     }
   }
@@ -104,11 +104,11 @@ router.get("/do-be-gai/:MaLoai", async function (req, res) {
   if (page < 0) page = 1;
   const offset = (page - 1) * config.pagination.limit;
   const list = await productModel.pageByCat(
-    req.params.MaLoai,
+    req.params.maloai,
     config.pagination.limit,
     offset
   );
-  const total = await productModel.countByLoai(req.params.MaLoai);
+  const total = await productModel.countByLoai(req.params.maloai);
   const nPages = Math.ceil(total / config.pagination.limit);
   const page_items = [];
   for (let i = 1; i <= nPages; i++) {
@@ -210,10 +210,10 @@ router.get("/category", async function (req, res) {
 });
 
 //Get san pham loai
-router.get("/do-be-trai/:MaLoai", async function (req, res) {
-  const ten_loai = await productModel.tenloai(req.params.MaLoai);
+router.get("/do-be-trai/:maloai", async function (req, res) {
+  const ten_loai = await productModel.tenloai(req.params.maloai);
   for (const c of res.locals.lcCategories1) {
-    if (c.MaLoai === +req.params.MaLoai) {
+    if (c.maloai === +req.params.maloai) {
       c.isActive = true;
     }
   }
@@ -222,11 +222,11 @@ router.get("/do-be-trai/:MaLoai", async function (req, res) {
   if (page < 0) page = 1;
   const offset = (page - 1) * config.pagination.limit;
   const list = await productModel.pageByCat(
-    req.params.MaLoai,
+    req.params.maloai,
     config.pagination.limit,
     offset
   );
-  const total = await productModel.countByLoai(req.params.MaLoai);
+  const total = await productModel.countByLoai(req.params.maloai);
   const nPages = Math.ceil(total / config.pagination.limit);
   const page_items = [];
   for (let i = 1; i <= nPages; i++) {
@@ -279,9 +279,9 @@ router.get("/do-be-trai", async function (req, res) {
   });
 });
 //xuat san pham loai
-router.get("/phu-kien/:MaLoai", async function (req, res) {
+router.get("/phu-kien/:maloai", async function (req, res) {
   for (const c of res.locals.lcCategories2) {
-    if (c.MaLoai === +req.params.MaLoai) {
+    if (c.maloai === +req.params.maloai) {
       c.isActive = true;
     }
   }
@@ -290,11 +290,11 @@ router.get("/phu-kien/:MaLoai", async function (req, res) {
   if (page < 0) page = 1;
   const offset = (page - 1) * config.pagination.limit;
   const list = await productModel.pageByCat(
-    req.params.MaLoai,
+    req.params.maloai,
     config.pagination.limit,
     offset
   );
-  const total = await productModel.countByLoai(req.params.MaLoai);
+  const total = await productModel.countByLoai(req.params.maloai);
   const nPages = Math.ceil(total / config.pagination.limit);
   const page_items = [];
   for (let i = 1; i <= nPages; i++) {

@@ -37,7 +37,7 @@
                 <tbody>
                 {{#arrlist}}
                     <tr>
-                        <td>{{MaSP}}</td>
+                        <td>{{masp}}</td>
                         <td>{{TenSP}}</td>
                         <td>
                             <a href="#" class="image">
@@ -48,9 +48,9 @@
                        
                         <td>{{Gia}}</td>
                         <td>{{Gia}}-{{chatlieu}}</td>
-                        <td>{{MoTa}}</td>
+                        <td>{{mota}}</td>
                         
-                        {{!-- <td>{{TinhTrang}}</td> --}}
+                        {{!-- <td>{{tinhtrang}}</td> --}}
 
                         {{!-- <td >
                             {{#thuoctinh}}
@@ -61,17 +61,17 @@
                             {{/thuoctinh}}
                         </td> --}}
                         <td>
-                            <a name="" id="" class="btn btn-primary btn-sm" href="/admin/attribute/detail/{{MaSP}}" role="button" title="Xem thuộc tính">
+                            <a name="" id="" class="btn btn-primary btn-sm" href="/admin/attribute/detail/{{masp}}" role="button" title="Xem thuộc tính">
                                 <i class="far fa-eye"></i>
                             </a>
                         </td>
                         <td>{{chatlieu}}</td>
-                        <td>{{NgayNhap}}</td>
+                        <td>{{ngaynhap}}</td>
                         <td class="text-right" style="text-align: right;">
-                            <a name="" id="" class="btn btn-primary btn-sm" href="/admin/products/edit/{{MaSP}}" role="button" title="Sửa sản phẩm">
+                            <a name="" id="" class="btn btn-primary btn-sm" href="/admin/products/edit/{{masp}}" role="button" title="Sửa sản phẩm">
                                 <i class="mdi mdi-border-color" aria-hidden="true"></i>
                             </a>
-                            <a name="" id="" class="btn btn-danger btn-sm" href="/admin/attribute/remove/{{MaSP}}" role="button" title="Xóa thuộc tính" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                            <a name="" id="" class="btn btn-danger btn-sm" href="/admin/attribute/remove/{{masp}}" role="button" title="Xóa thuộc tính" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
                         </td>

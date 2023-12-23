@@ -213,7 +213,7 @@ router.get("/profile", restrict.user, function _callee6(req, res) {
       switch (_context6.prev = _context6.next) {
         case 0:
           userr = req.session.authUser;
-          makh = userr.MaKH;
+          makh = userr.makh;
           _context6.next = 4;
           return regeneratorRuntime.awrap(orderModel.all_kh_makh(makh));
 
@@ -277,7 +277,7 @@ router.get("/profile/order", restrict.user, function _callee7(req, res) {
         case 0:
           user = req.session.authUser;
           console.log("khachhang", user);
-          makh = user.MaKH;
+          makh = user.makh;
           _context7.next = 5;
           return regeneratorRuntime.awrap(orderModel.all_order_makh(makh));
 
@@ -335,7 +335,7 @@ router.get("/profile/choxacnhan", restrict.user, function _callee9(req, res) {
       switch (_context9.prev = _context9.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context9.next = 4;
           return regeneratorRuntime.awrap(orderModel.all_order_choxacnhan(makh));
 
@@ -443,7 +443,7 @@ router.get("/profile/daxacnhan", restrict.user, function _callee11(req, res) {
       switch (_context11.prev = _context11.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context11.next = 4;
           return regeneratorRuntime.awrap(orderModel.all_order_daxacnhan(makh));
 
@@ -475,7 +475,7 @@ router.get("/profile/danggiao", restrict.user, function _callee12(req, res) {
       switch (_context12.prev = _context12.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context12.next = 4;
           return regeneratorRuntime.awrap(orderModel.all_order_danggiao(makh));
 
@@ -507,7 +507,7 @@ router.get("/profile/danhan", restrict.user, function _callee13(req, res) {
       switch (_context13.prev = _context13.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context13.next = 4;
           return regeneratorRuntime.awrap(orderModel.all_order_danhanhang(makh));
 
@@ -539,7 +539,7 @@ router.get("/profile/dahuy", restrict.user, function _callee14(req, res) {
       switch (_context14.prev = _context14.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context14.next = 4;
           return regeneratorRuntime.awrap(orderModel.all_order_dahuy(makh));
 
@@ -571,7 +571,7 @@ router.get("/profile/edit", restrict.user, function _callee15(req, res) {
       switch (_context15.prev = _context15.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context15.next = 4;
           return regeneratorRuntime.awrap(orderModel.single_kh(makh));
 
@@ -598,9 +598,9 @@ router.post("/profile/edit", restrict.user, function _callee16(req, res) {
       switch (_context16.prev = _context16.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           entity = {
-            MaKH: makh,
+            makh: makh,
             tenkh: req.body.tenkh,
             username: req.body.username,
             email: req.body.email,
@@ -627,7 +627,7 @@ router.get("/profile/address", restrict.user, function _callee17(req, res) {
       switch (_context17.prev = _context17.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context17.next = 4;
           return regeneratorRuntime.awrap(orderModel.single_kh(makh));
 
@@ -653,9 +653,9 @@ router.post("/profile/address", restrict.user, function _callee18(req, res) {
       switch (_context18.prev = _context18.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           entity = {
-            MaKH: makh,
+            makh: makh,
             diachi: req.body.diachi,
             phuong_xa: req.body.phuong_xa,
             quan_huyen: req.body.quan_huyen,
@@ -682,7 +682,7 @@ router.get("/profile/password", restrict.user, function _callee19(req, res) {
       switch (_context19.prev = _context19.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           _context19.next = 4;
           return regeneratorRuntime.awrap(orderModel.single_kh(makh));
 
@@ -708,11 +708,11 @@ router.post("/profile/password", restrict.user, function _callee20(req, res) {
       switch (_context20.prev = _context20.next) {
         case 0:
           user = req.session.authUser;
-          makh = user.MaKH;
+          makh = user.makh;
           salt = bcrypt.genSaltSync(10);
           password_hash = bcrypt.hashSync(req.body.password, salt);
           entity = {
-            MaKH: makh,
+            makh: makh,
             password: password_hash
           };
           _context20.next = 7;

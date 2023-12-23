@@ -9,8 +9,8 @@ module.exports = {
     return db.load(`select *from ${tbl_Users}`);
   },
   //
-  all_id: function (MaKH) {
-    return db.load(`select *from ${tbl_Users} where MaKH =${MaKH}`);
+  all_id: function (makh) {
+    return db.load(`select *from ${tbl_Users} where makh =${makh}`);
   },
   //them username khách hàng
   add_kh: function (entity) {
@@ -27,20 +27,20 @@ module.exports = {
     return rows[0];
   },
   //sua
-  single: function (MaKH) {
-    return db.load(`select *from ${tbl_Users} where MaKH =${MaKH}`);
+  single: function (makh) {
+    return db.load(`select *from ${tbl_Users} where makh =${makh}`);
   },
   //capnhat
   patch: function (entity) {
     const condition = {
-      MaKH: entity.MaKH,
+      makh: entity.makh,
     };
-    delete entity.MaKH;
+    delete entity.makh;
     return db.update_kh(tbl_Users, entity, condition);
   },
   //xoa
-  del: function (MaKH) {
-    const condition = { MaKH };
+  del: function (makh) {
+    const condition = { makh };
     return db.delete_kh(tbl_Users, condition);
   },
 };

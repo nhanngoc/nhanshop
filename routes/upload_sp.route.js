@@ -17,10 +17,10 @@ router.post("/products/add", async function (req, res, next) {
   var date =
     today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
   var post = req.body;
-  var maloai = post.MaLoai;
+  var maloai = post.maloai;
   var ten = post.TenSP;
   var gia = post.Gia;
-  var mota = post.MoTa;
+  var mota = post.mota;
   var chatlieu = post.chatlieu;
   var ngaynhap = date;
 
@@ -52,11 +52,11 @@ router.post("/products/add", async function (req, res, next) {
     file.mv("public/images/" + file.name, async function (err) {
       if (err) return res.status(500).send(err);
       const entity = {
-        MaLoai: maloai,
+        maloai: maloai,
         TenSP: ten,
         Anh: img_name,
         Gia: gia,
-        MoTa: mota,
+        mota: mota,
         chatlieu: chatlieu,
         ngaynhap: ngaynhap,
       };
@@ -64,9 +64,9 @@ router.post("/products/add", async function (req, res, next) {
       const idsp = await Model.id_sp();
       let arrlist = [];
       for (let i = 0; i < mutilfile.length; i++) {
-        const MaSP = idsp;
+        const masp = idsp;
         const anh_ten = mutilfile[i].name;
-        let arr = [MaSP, anh_ten];
+        let arr = [masp, anh_ten];
         arrlist.push(arr);
       }
       console.log("arrlist:", arrlist);

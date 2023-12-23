@@ -36,7 +36,7 @@ router.get("/", function _callee(req, res) {
 
           for (i = 0; i < giamgia.length; i++) {
             item = {
-              MaSP: giamgia[i].makm,
+              masp: giamgia[i].makm,
               TenSP: giamgia[i].TenSP,
               Anh: giamgia[i].Anh,
               Gia: giamgia[i].Gia,
@@ -80,7 +80,7 @@ router.get("/page", function _callee2(req, res) {
           for (_iterator = res.locals.lcCategories[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             c = _step.value;
 
-            if (c.MaLoai === +req.params.MaLoai) {
+            if (c.maloai === +req.params.maloai) {
               c.isActive = true;
             }
           } //phan trang
@@ -225,7 +225,7 @@ router.post("/cart/:id", function _callee4(req, res) {
           for (i = 0; i < gg.length; i++) {
             if (productId == gg[i].makm) {
               _product = {
-                masp: rows[0].MaSP,
+                masp: rows[0].masp,
                 tensp: rows[0].TenSP,
                 anh: rows[0].Anh,
                 size: rows[0].size,
@@ -247,7 +247,7 @@ router.post("/cart/:id", function _callee4(req, res) {
           }
 
           product = {
-            masp: rows[0].MaSP,
+            masp: rows[0].masp,
             tensp: rows[0].TenSP,
             anh: rows[0].Anh,
             size: rows[0].size,
@@ -387,11 +387,11 @@ router.post("/checkout", function _callee5(req, res, next) {
           quan = req.body.quan_huyen;
           tinh = req.body.tinh;
           today = new Date();
-          date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear(); //user lưu maKH, ngayHD, tenNN, diachi, ngaynhan, soluong:cart.totalItems, tongtien:cart.totalPrice vào hoadon
+          date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear(); //user lưu makh, ngayHD, tenNN, diachi, ngaynhan, soluong:cart.totalItems, tongtien:cart.totalPrice vào hoadon
 
           entity = {
             ngayhd: date,
-            makh: user.MaKH,
+            makh: user.makh,
             tennn: req.body.tennn,
             sdt: req.body.sdt,
             diachi: diachi + ", " + phuong + ", " + quan + ", " + tinh,

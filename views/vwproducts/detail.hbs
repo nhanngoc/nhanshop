@@ -193,7 +193,7 @@ input.form-search {
         </span></span>
             
       {{#each this.sanpham}}
-      <h1><a href="{{MaSP}}" title="{{TenSP}}">{{TenSP}}</a></h1>
+      <h1><a href="{{masp}}" title="{{TenSP}}">{{TenSP}}</a></h1>
       {{/each}}
     </div>
     <div id="product-info" class="row-fluid">
@@ -235,7 +235,7 @@ input.form-search {
             <tbody>
               <tr style="display:table-row;">
                 <td style="width:70px" class="p_details_attribute_group"> Thiết kế</td>
-                <td>{{MoTa}}</td>
+                <td>{{mota}}</td>
               </tr>
               <tr class="header" style="display: none;">
                 <td style="width:70px"></td>
@@ -283,7 +283,7 @@ input.form-search {
             <table class="attribute ">
               <tbody>
                   <tr>
-                      <td>{{#each this.sanpham}}{{MoTa}}{{/each}}</td>
+                      <td>{{#each this.sanpham}}{{mota}}{{/each}}</td>
                   </tr>
                   <tr style="display:none;">
                       <td>Thun da cá </td>
@@ -306,7 +306,7 @@ input.form-search {
           </div>
           <div class="content_full_description">
               <p>
-              <strong>Thiết kế</strong> : {{#each this.sanpham}}{{MoTa}}{{/each}}<br><br><strong>Chất liệu</strong> : Thun da cá<br><br><strong>Xuất xứ</strong> : Việt Nam<br><br></p> 
+              <strong>Thiết kế</strong> : {{#each this.sanpham}}{{mota}}{{/each}}<br><br><strong>Chất liệu</strong> : Thun da cá<br><br><strong>Xuất xứ</strong> : Việt Nam<br><br></p> 
                 {{#each this.detail_anh}}
                 <img class="lazy_description" data-original="/public/images/detail/{{anh_ten}}" src="/public/detail/blank.gif">
                 <br><br>
@@ -375,7 +375,7 @@ input.form-search {
                     </div>
                 </div> 
                     {{!-- <div class="">
-                        <input type="text" class="form-control" name="MaSP" id="MaSP" value="{{#each this.sanpham}}{{MaSP}}{{/each}}">
+                        <input type="text" class="form-control" name="masp" id="masp" value="{{#each this.sanpham}}{{masp}}{{/each}}">
                     </div>
                     <div class="chonmau">
                     </div>
@@ -383,7 +383,7 @@ input.form-search {
                     </div> --}}
                 <div class="att_product_chose">
                   <div class="attr_color">
-                      <div class="title_attr" id="{{#each this.sanpham}}{{MaSP}}{{/each}}">Màu sắc</div>
+                      <div class="title_attr" id="{{#each this.sanpham}}{{masp}}{{/each}}">Màu sắc</div>
                       <div class="optio_attr">
                           {{#page_items}}
                           <label class="item_attr color " id="{{#code}}{{this.color_id}}{{/code}}" data="{{#items}}{{this.size_id}}@{{/items}}">{{#code}}{{this.color}}{{/code}}</label>
@@ -703,7 +703,7 @@ input.form-search {
       url:"/cart/"+ma_attr+"?size="+ssize+"&color="+scolor+"&quantity="+sl, //'index.php?route=checkout/cart/add', gửi dữ liệu vao trang gio hang
       type: 'POST',
       //dataType:'json',
-      //data: { MaSP: ma_attr, color: scolor, size: ssize, quantity: sl},
+      //data: { masp: ma_attr, color: scolor, size: ssize, quantity: sl},
       success : function (result){
         //if (result['success']) {
          var str_att = "";

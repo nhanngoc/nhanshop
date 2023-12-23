@@ -49,10 +49,10 @@ router.post("/products/add", function _callee4(req, res, next) {
           today = new Date();
           date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
           post = req.body;
-          maloai = post.MaLoai;
+          maloai = post.maloai;
           ten = post.TenSP;
           gia = post.Gia;
-          mota = post.MoTa;
+          mota = post.mota;
           chatlieu = post.chatlieu;
           ngaynhap = date;
           /* if (!req.files)
@@ -93,7 +93,7 @@ router.post("/products/add", function _callee4(req, res, next) {
               });
             });
             file.mv("public/images/" + file.name, function _callee3(err) {
-              var entity, idsp, arrlist, i, MaSP, anh_ten, arr;
+              var entity, idsp, arrlist, i, masp, anh_ten, arr;
               return regeneratorRuntime.async(function _callee3$(_context3) {
                 while (1) {
                   switch (_context3.prev = _context3.next) {
@@ -107,11 +107,11 @@ router.post("/products/add", function _callee4(req, res, next) {
 
                     case 2:
                       entity = {
-                        MaLoai: maloai,
+                        maloai: maloai,
                         TenSP: ten,
                         Anh: img_name,
                         Gia: gia,
-                        MoTa: mota,
+                        mota: mota,
                         chatlieu: chatlieu,
                         ngaynhap: ngaynhap
                       };
@@ -127,9 +127,9 @@ router.post("/products/add", function _callee4(req, res, next) {
                       arrlist = [];
 
                       for (i = 0; i < mutilfile.length; i++) {
-                        MaSP = idsp;
+                        masp = idsp;
                         anh_ten = mutilfile[i].name;
-                        arr = [MaSP, anh_ten];
+                        arr = [masp, anh_ten];
                         arrlist.push(arr);
                       }
 

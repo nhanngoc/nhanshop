@@ -6,21 +6,21 @@
     <div class="card-body">
         <form name="myform" method="POST" action="" onsubmit="return validateform()">
             <div class="form-group">
-                <label for="MaDM" class="col-md-3 control-label">Tên danh mục</label>
+                <label for="madm" class="col-md-3 control-label">Tên danh mục</label>
                 <div class="col-md-9">
-                    <select class="custom-select mt-3"id="txtMaDM" name="MaDM">
+                    <select class="custom-select mt-3"id="txtmadm" name="madm">
                         <option value="">Chọn danh mục</option>
                         {{#each this.sanpham}}
-                        <option value="{{MaDM}}">{{MaDM}}-{{TenDM}}</option>
+                        <option value="{{madm}}">{{madm}}-{{tendm}}</option>
                         {{/each}}
                     </select>
                 </div>
             </div>
            
             <div class="form-group">
-                <label for="TenLoai" class="col-md-3 control-label">Tên Loại</label>
+                <label for="tenloai" class="col-md-3 control-label">Tên Loại</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" name="TenLoai" placeholder="Nhập tên loại">
+                    <input type="text" class="form-control" name="tenloai" placeholder="Nhập tên loại">
                 </div>
             </div>
             
@@ -36,14 +36,14 @@
 </div>
 <script language="javascript">
     function validateform() {
-        var MaDM = document.myform.MaDM.value;
-        var TenLoai = document.myform.TenLoai.value;
+        var madm = document.myform.madm.value;
+        var tenloai = document.myform.tenloai.value;
 
-        if(MaDM==""){
+        if(madm==""){
             alert('Chưa chọn danh mục, mời bạn chọn lại!')
             return false
         }
-        if(TenLoai==""){
+        if(tenloai==""){
             alert('Chưa nhập Tên, mời bạn nhập lại!')
             return false
         }

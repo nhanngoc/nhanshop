@@ -28,7 +28,7 @@ router.get("/list", function _callee(req, res) {
           for (_iterator = res.locals.lcCategories[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             c = _step.value;
 
-            if (c.MaLoai === +req.params.MaLoai) {
+            if (c.maloai === +req.params.maloai) {
               c.isActive = true;
             }
           } //phan trang
@@ -72,7 +72,7 @@ router.get("/list", function _callee(req, res) {
           if (page < 0) page = (_readOnlyError("page"), 1);
           offset = (page - 1) * config.pagination.limit;
           _context.next = 24;
-          return regeneratorRuntime.awrap(productModel.pageByHome(req.params.MaLoai, config.pagination.limit, offset));
+          return regeneratorRuntime.awrap(productModel.pageByHome(req.params.maloai, config.pagination.limit, offset));
 
         case 24:
           list = _context.sent;
@@ -108,14 +108,14 @@ router.get("/list", function _callee(req, res) {
   }, null, null, [[3, 7, 11, 19], [12,, 14, 18]]);
 }); //detail
 
-router.get("/detail/:MaSP", function _callee2(req, res) {
+router.get("/detail/:masp", function _callee2(req, res) {
   var id, product, ggg, data, lists, color, size, distinct_size, detail_anh, tong, i, page_items, _i, cc, j, itemi;
 
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          id = req.params.MaSP;
+          id = req.params.masp;
           _context2.next = 3;
           return regeneratorRuntime.awrap(productModel.detail_ct(id));
 
@@ -203,7 +203,7 @@ router.get("/detail/:MaSP", function _callee2(req, res) {
   });
 }); //Get san pham loai
 
-router.get("/do-be-gai/:MaLoai", function _callee3(req, res) {
+router.get("/do-be-gai/:maloai", function _callee3(req, res) {
   var ten_loai, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, c, page, offset, list, total, nPages, page_items, i, item;
 
   return regeneratorRuntime.async(function _callee3$(_context3) {
@@ -211,7 +211,7 @@ router.get("/do-be-gai/:MaLoai", function _callee3(req, res) {
       switch (_context3.prev = _context3.next) {
         case 0:
           _context3.next = 2;
-          return regeneratorRuntime.awrap(productModel.tenloai(req.params.MaLoai));
+          return regeneratorRuntime.awrap(productModel.tenloai(req.params.maloai));
 
         case 2:
           ten_loai = _context3.sent;
@@ -223,7 +223,7 @@ router.get("/do-be-gai/:MaLoai", function _callee3(req, res) {
           for (_iterator2 = res.locals.lcCategories[Symbol.iterator](); !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
             c = _step2.value;
 
-            if (c.MaLoai === +req.params.MaLoai) {
+            if (c.maloai === +req.params.maloai) {
               c.isActive = true;
             }
           } //phan trang
@@ -267,12 +267,12 @@ router.get("/do-be-gai/:MaLoai", function _callee3(req, res) {
           if (page < 0) page = (_readOnlyError("page"), 1);
           offset = (page - 1) * config.pagination.limit;
           _context3.next = 27;
-          return regeneratorRuntime.awrap(productModel.pageByCat(req.params.MaLoai, config.pagination.limit, offset));
+          return regeneratorRuntime.awrap(productModel.pageByCat(req.params.maloai, config.pagination.limit, offset));
 
         case 27:
           list = _context3.sent;
           _context3.next = 30;
-          return regeneratorRuntime.awrap(productModel.countByLoai(req.params.MaLoai));
+          return regeneratorRuntime.awrap(productModel.countByLoai(req.params.maloai));
 
         case 30:
           total = _context3.sent;
@@ -431,7 +431,7 @@ router.get("/category", function _callee5(req, res) {
   });
 }); //Get san pham loai
 
-router.get("/do-be-trai/:MaLoai", function _callee6(req, res) {
+router.get("/do-be-trai/:maloai", function _callee6(req, res) {
   var ten_loai, _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, c, page, offset, list, total, nPages, page_items, i, item;
 
   return regeneratorRuntime.async(function _callee6$(_context6) {
@@ -439,7 +439,7 @@ router.get("/do-be-trai/:MaLoai", function _callee6(req, res) {
       switch (_context6.prev = _context6.next) {
         case 0:
           _context6.next = 2;
-          return regeneratorRuntime.awrap(productModel.tenloai(req.params.MaLoai));
+          return regeneratorRuntime.awrap(productModel.tenloai(req.params.maloai));
 
         case 2:
           ten_loai = _context6.sent;
@@ -451,7 +451,7 @@ router.get("/do-be-trai/:MaLoai", function _callee6(req, res) {
           for (_iterator3 = res.locals.lcCategories1[Symbol.iterator](); !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
             c = _step3.value;
 
-            if (c.MaLoai === +req.params.MaLoai) {
+            if (c.maloai === +req.params.maloai) {
               c.isActive = true;
             }
           } //phan trang
@@ -495,12 +495,12 @@ router.get("/do-be-trai/:MaLoai", function _callee6(req, res) {
           if (page < 0) page = (_readOnlyError("page"), 1);
           offset = (page - 1) * config.pagination.limit;
           _context6.next = 27;
-          return regeneratorRuntime.awrap(productModel.pageByCat(req.params.MaLoai, config.pagination.limit, offset));
+          return regeneratorRuntime.awrap(productModel.pageByCat(req.params.maloai, config.pagination.limit, offset));
 
         case 27:
           list = _context6.sent;
           _context6.next = 30;
-          return regeneratorRuntime.awrap(productModel.countByLoai(req.params.MaLoai));
+          return regeneratorRuntime.awrap(productModel.countByLoai(req.params.maloai));
 
         case 30:
           total = _context6.sent;
@@ -587,7 +587,7 @@ router.get("/do-be-trai", function _callee7(req, res) {
   });
 }); //xuat san pham loai
 
-router.get("/phu-kien/:MaLoai", function _callee8(req, res) {
+router.get("/phu-kien/:maloai", function _callee8(req, res) {
   var _iteratorNormalCompletion4, _didIteratorError4, _iteratorError4, _iterator4, _step4, c, page, offset, list, total, nPages, page_items, i, item;
 
   return regeneratorRuntime.async(function _callee8$(_context8) {
@@ -602,7 +602,7 @@ router.get("/phu-kien/:MaLoai", function _callee8(req, res) {
           for (_iterator4 = res.locals.lcCategories2[Symbol.iterator](); !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
             c = _step4.value;
 
-            if (c.MaLoai === +req.params.MaLoai) {
+            if (c.maloai === +req.params.maloai) {
               c.isActive = true;
             }
           } //phan trang
@@ -646,12 +646,12 @@ router.get("/phu-kien/:MaLoai", function _callee8(req, res) {
           if (page < 0) page = (_readOnlyError("page"), 1);
           offset = (page - 1) * config.pagination.limit;
           _context8.next = 24;
-          return regeneratorRuntime.awrap(productModel.pageByCat(req.params.MaLoai, config.pagination.limit, offset));
+          return regeneratorRuntime.awrap(productModel.pageByCat(req.params.maloai, config.pagination.limit, offset));
 
         case 24:
           list = _context8.sent;
           _context8.next = 27;
-          return regeneratorRuntime.awrap(productModel.countByLoai(req.params.MaLoai));
+          return regeneratorRuntime.awrap(productModel.countByLoai(req.params.maloai));
 
         case 27:
           total = _context8.sent;

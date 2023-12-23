@@ -30,17 +30,17 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `anhct`;
 CREATE TABLE IF NOT EXISTS `anhct` (
   `anh_id` int(11) NOT NULL AUTO_INCREMENT,
-  `MaSP` int(11) DEFAULT NULL,
+  `masp` int(11) DEFAULT NULL,
   `anh_ten` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`anh_id`),
-  KEY `MaSP` (`MaSP`)
+  KEY `masp` (`masp`)
 ) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `anhct`
 --
 
-INSERT INTO `anhct` (`anh_id`, `MaSP`, `anh_ten`) VALUES
+INSERT INTO `anhct` (`anh_id`, `masp`, `anh_ten`) VALUES
 (1, 11, 'DAITAYMICKEY2.jpg'),
 (2, 11, 'DAITAYMICKEY3.jpg'),
 (3, 12, 'aokhoatloveisxanh.jpg'),
@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `chitiethd` (
   `ma_id` int(11) NOT NULL,
   PRIMARY KEY (`mact`),
   KEY `MaHD` (`mahd`),
-  KEY `MaSP` (`masp`)
+  KEY `masp` (`masp`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
@@ -259,16 +259,16 @@ INSERT INTO `colors` (`color_id`, `color`) VALUES
 
 DROP TABLE IF EXISTS `danhmuc`;
 CREATE TABLE IF NOT EXISTS `danhmuc` (
-  `MaDM` int(11) NOT NULL AUTO_INCREMENT,
-  `TenDM` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`MaDM`)
+  `madm` int(11) NOT NULL AUTO_INCREMENT,
+  `tendm` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`madm`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `danhmuc`
 --
 
-INSERT INTO `danhmuc` (`MaDM`, `TenDM`) VALUES
+INSERT INTO `danhmuc` (`madm`, `tendm`) VALUES
 (0, 'Bé gái'),
 (1, 'Bé trai'),
 (2, 'Phụ kiện');
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `hoadon` (
   `ghichu` text NOT NULL,
   `trangthai` varchar(50) NOT NULL,
   PRIMARY KEY (`mahd`),
-  KEY `MaKH` (`makh`)
+  KEY `makh` (`makh`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
@@ -348,7 +348,7 @@ INSERT INTO `hoadon` (`mahd`, `makh`, `ngayhd`, `tennn`, `sdt`, `diachi`, `pttt`
 
 DROP TABLE IF EXISTS `khachhang`;
 CREATE TABLE IF NOT EXISTS `khachhang` (
-  `MaKH` int(11) NOT NULL AUTO_INCREMENT,
+  `makh` int(11) NOT NULL AUTO_INCREMENT,
   `tenkh` varchar(50) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -358,14 +358,14 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
   `phuong_xa` varchar(200) NOT NULL,
   `quan_huyen` varchar(200) NOT NULL,
   `tinh` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`MaKH`)
+  PRIMARY KEY (`makh`)
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `khachhang`
 --
 
-INSERT INTO `khachhang` (`MaKH`, `tenkh`, `username`, `password`, `email`, `sdt`, `diachi`, `phuong_xa`, `quan_huyen`, `tinh`) VALUES
+INSERT INTO `khachhang` (`makh`, `tenkh`, `username`, `password`, `email`, `sdt`, `diachi`, `phuong_xa`, `quan_huyen`, `tinh`) VALUES
 (18, 'nhan ngoc', 'ngocnhan', '$2a$10$QbFms9VnbD70bi5H6uKz2.LzlIGMSSl7m7tOZ34lSi4dduESfD1Zu', 'phamlinh6016@gmail.com', '0147852367', 'ap an dong', 'An Thoi Dong', 'Cần Giờ', 'Hồ Chí Minh'),
 (50, 'ngoc nhan23', 'ngocnhan1', '$2a$10$QbFms9VnbD70bi5H6uKz2.LzlIGMSSl7m7tOZ34lSi4dduESfD1Zu', 'nnhann2000@gmail.com', '0000012332', 'duong 170/11', 'phường 5', 'quận 10', 'Hồ Chí Minh'),
 (51, 'nhân phạm', 'ngocnhan2', '$2a$10$QbFms9VnbD70bi5H6uKz2.LzlIGMSSl7m7tOZ34lSi4dduESfD1Zu', 'nnhann909@gmail.com', '0337876016', '180 cao lỗ', 'phường 4', 'quận 8', 'Hồ Chí Minh'),
@@ -385,18 +385,18 @@ INSERT INTO `khachhang` (`MaKH`, `tenkh`, `username`, `password`, `email`, `sdt`
 
 DROP TABLE IF EXISTS `loaisp`;
 CREATE TABLE IF NOT EXISTS `loaisp` (
-  `MaLoai` int(11) NOT NULL AUTO_INCREMENT,
-  `MaDM` int(11) DEFAULT NULL,
-  `TenLoai` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`MaLoai`),
-  KEY `MaDM` (`MaDM`)
+  `maloai` int(11) NOT NULL AUTO_INCREMENT,
+  `madm` int(11) DEFAULT NULL,
+  `tenloai` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`maloai`),
+  KEY `madm` (`madm`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `loaisp`
 --
 
-INSERT INTO `loaisp` (`MaLoai`, `MaDM`, `TenLoai`) VALUES
+INSERT INTO `loaisp` (`maloai`, `madm`, `tenloai`) VALUES
 (0, 0, 'Đồ bộ bé gái'),
 (1, 0, 'Đầm bé gái'),
 (2, 0, 'Đồ bơi bé gái'),
@@ -446,25 +446,25 @@ INSERT INTO `quantri` (`manv`, `tennv`, `gioitinh`, `ngaysinh`, `email`, `sdt`, 
 
 DROP TABLE IF EXISTS `sanpham`;
 CREATE TABLE IF NOT EXISTS `sanpham` (
-  `MaSP` int(11) NOT NULL AUTO_INCREMENT,
-  `MaLoai` int(11) NOT NULL,
+  `masp` int(11) NOT NULL AUTO_INCREMENT,
+  `maloai` int(11) NOT NULL,
   `TenSP` varchar(100) NOT NULL,
   `Anh` varchar(100) DEFAULT NULL,
-  `SoLuongBan` int(11) DEFAULT NULL,
+  `soluongban` int(11) DEFAULT NULL,
   `Gia` int(11) DEFAULT NULL,
-  `MoTa` text,
+  `mota` text,
   `chatlieu` varchar(50) NOT NULL,
-  `TinhTrang` varchar(50) DEFAULT NULL,
-  `NgayNhap` tinytext,
-  PRIMARY KEY (`MaSP`),
-  KEY `MaLoai` (`MaLoai`)
+  `tinhtrang` varchar(50) DEFAULT NULL,
+  `ngaynhap` tinytext,
+  PRIMARY KEY (`masp`),
+  KEY `maloai` (`maloai`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sanpham`
 --
 
-INSERT INTO `sanpham` (`MaSP`, `MaLoai`, `TenSP`, `Anh`, `SoLuongBan`, `Gia`, `MoTa`, `chatlieu`, `TinhTrang`, `NgayNhap`) VALUES
+INSERT INTO `sanpham` (`masp`, `maloai`, `TenSP`, `Anh`, `soluongban`, `Gia`, `mota`, `chatlieu`, `tinhtrang`, `ngaynhap`) VALUES
 (4, 3, '[SIZE ĐẠI] Áo hoodie sọc in chữ Crime dễ thương cho bé từ 10 - 15 Tuổi', 'aohoodie1.jpg', 3, 119000, 'Áo hoodie sọc CREME năng động - sành điệu cho bé mix đồ thời tiết giao mùa. Chất thun cotton chính phẩm co giãn 4c, mềm mịn. Sọc in thắm sắc nét. Style năng động, dễ mặc, dễ phối đồ.', 'Thun cotton', 'Còn hàng', '19-11-2021'),
 (5, 0, '[SIZE ĐẠI] Pijama in bé gái dễ thương cho bé gái 10 - 15 Tuổi ', 'pijamabegaitrang.jpg', 2, 50000, 'Pizama tay ngắn quần dài siêu xinh cho các bé gái. Chất liệu satin mềm mịn, thoải mái khi mặc, hình in sắc sảo, đáng yêu.', 'LỤA SATIN', 'Còn hàng', '19-11-2021'),
 (6, 0, '[SIZE ĐẠI] Pijama in gấu Pooh chữ dễ thương cho bé gái 10 - 15 Tuổi', 'pijamagaupoohchutrang.jpg', 3, 40000, 'Pizama tay ngắn quần dài siêu xinh cho các bé gái. Chất liệu satin mềm mịn, thoải mái khi mặc, hình in sắc sảo, đáng yêu.', 'LỤA SATIN', 'Còn hàng', '19-11-2021'),
@@ -1002,44 +1002,44 @@ CREATE TABLE IF NOT EXISTS `ykien_kh` (
 -- Constraints for table `anhct`
 --
 ALTER TABLE `anhct`
-  ADD CONSTRAINT `anhct_ibfk_1` FOREIGN KEY (`MaSP`) REFERENCES `sanpham` (`MaSP`);
+  ADD CONSTRAINT `anhct_ibfk_1` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`masp`);
 
 --
 -- Constraints for table `chitiethd`
 --
 ALTER TABLE `chitiethd`
-  ADD CONSTRAINT `chitiethd_ibfk_1` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`MaSP`),
+  ADD CONSTRAINT `chitiethd_ibfk_1` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`masp`),
   ADD CONSTRAINT `chitiethd_ibfk_2` FOREIGN KEY (`mahd`) REFERENCES `hoadon` (`mahd`);
 
 --
 -- Constraints for table `giamgia`
 --
 ALTER TABLE `giamgia`
-  ADD CONSTRAINT `giamgia_ibfk_1` FOREIGN KEY (`makm`) REFERENCES `sanpham` (`MaSP`);
+  ADD CONSTRAINT `giamgia_ibfk_1` FOREIGN KEY (`makm`) REFERENCES `sanpham` (`masp`);
 
 --
 -- Constraints for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`makh`) REFERENCES `khachhang` (`MaKH`);
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`makh`) REFERENCES `khachhang` (`makh`);
 
 --
 -- Constraints for table `loaisp`
 --
 ALTER TABLE `loaisp`
-  ADD CONSTRAINT `loaisp_ibfk_1` FOREIGN KEY (`MaDM`) REFERENCES `danhmuc` (`MaDM`);
+  ADD CONSTRAINT `loaisp_ibfk_1` FOREIGN KEY (`madm`) REFERENCES `danhmuc` (`madm`);
 
 --
 -- Constraints for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`MaLoai`) REFERENCES `loaisp` (`MaLoai`);
+  ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`maloai`) REFERENCES `loaisp` (`maloai`);
 
 --
 -- Constraints for table `sanphamct`
 --
 ALTER TABLE `sanphamct`
-  ADD CONSTRAINT `sanphamct_ibfk_1` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`MaSP`),
+  ADD CONSTRAINT `sanphamct_ibfk_1` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`masp`),
   ADD CONSTRAINT `sanphamct_ibfk_2` FOREIGN KEY (`color_id`) REFERENCES `colors` (`color_id`),
   ADD CONSTRAINT `sanphamct_ibfk_3` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`size_id`);
 COMMIT;

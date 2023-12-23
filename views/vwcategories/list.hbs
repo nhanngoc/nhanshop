@@ -65,8 +65,8 @@
     <table class="table table-hover">
          <div class="form-group">
                 
-                <input type="text" class="form-control" id="txtMaSP" name="MaSP" readonly
-                    value="{{this.sanpham.MaSP}}">
+                <input type="text" class="form-control" id="txtmasp" name="masp" readonly
+                    value="{{this.sanpham.masp}}">
             </div>
         <thead>
             <tr>
@@ -88,18 +88,18 @@
             {{#each this.sanpham}}
             <tr>
 
-                <th scope="row">{{MaSP}}</th>
+                <th scope="row">{{masp}}</th>
                 <td>{{TenSP}}</td>
                 <td>{{Anh}}</td>
                 <td>{{SoLuong}}</td>
-                <td>{{SoLuongBan}}</td>
+                <td>{{soluongban}}</td>
                 <td>{{Gia}}</td>
                 <td>{{Size}}</td>
-                <td>{{MoTa}}</td>
-                <td>{{TinhTrang}}</td>
-                <td>{{NgayNhap}}</td>
+                <td>{{mota}}</td>
+                <td>{{tinhtrang}}</td>
+                <td>{{ngaynhap}}</td>
                 <td class="text-right">
-                    <a name="" id="" class="btn btn-primary btn-sm" href="/admin/categories/edit/{{MaSP}}" role="button" title="edit Category">
+                    <a name="" id="" class="btn btn-primary btn-sm" href="/admin/categories/edit/{{masp}}" role="button" title="edit Category">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                 </td>

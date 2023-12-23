@@ -3,7 +3,6 @@ const moment = require("moment");
 const Joi = require("joi");
 const bcrypt = require("bcryptjs");
 const userModel = require("../models/user.model");
-const config = require("../config/default.json");
 const orderModel = require("../models/order.model");
 const Cart = require("../models/cart");
 //register
@@ -102,7 +101,7 @@ router.get("/register/success", async function (req, res) {
 //login profile
 router.get("/profile", restrict.user, async function (req, res) {
   const userr = req.session.authUser;
-  const makh = userr.MaKH;
+  const makh = userr.makh;
   const user = await orderModel.all_kh_makh(makh);
   const total1 = await orderModel.total_choxacnhan(makh);
   const total2 = await orderModel.total_daxacnhan(makh);
@@ -130,7 +129,7 @@ router.get("/profile", restrict.user, async function (req, res) {
 router.get("/profile/order", restrict.user, async function (req, res) {
   const user = req.session.authUser;
   console.log("khachhang", user);
-  const makh = user.MaKH;
+  const makh = user.makh;
   const order = await orderModel.all_order_makh(makh);
   console.log("order", order);
   res.render("vwaccount/order", { order: order });
@@ -150,7 +149,7 @@ router.get("/profile/order/:id", restrict.user, async function (req, res) {
 //1xem danh sách choxacnhan đơn đặt hàng
 router.get("/profile/choxacnhan", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const order = await orderModel.all_order_choxacnhan(makh);
   var total = 0;
   for (let i = 0; i < order.length; i++) {
@@ -185,7 +184,7 @@ router.get("/profile/dahuy/:mahd", restrict.user, async function (req, res) {
 //2xem danh sách daxacnhan đơn đặt hàng
 router.get("/profile/daxacnhan", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const order = await orderModel.all_order_daxacnhan(makh);
   var total = 0;
   for (let i = 0; i < order.length; i++) {
@@ -196,7 +195,7 @@ router.get("/profile/daxacnhan", restrict.user, async function (req, res) {
 //3xem danh sách danggiao đơn đặt hàng
 router.get("/profile/danggiao", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const order = await orderModel.all_order_danggiao(makh);
   var total = 0;
   for (let i = 0; i < order.length; i++) {
@@ -207,7 +206,7 @@ router.get("/profile/danggiao", restrict.user, async function (req, res) {
 //4xem danh sách danhanhang đơn đặt hàng
 router.get("/profile/danhan", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const order = await orderModel.all_order_danhanhang(makh);
   var total = 0;
   for (let i = 0; i < order.length; i++) {
@@ -218,7 +217,7 @@ router.get("/profile/danhan", restrict.user, async function (req, res) {
 //5xem danh sách dahuy đơn đặt hàng
 router.get("/profile/dahuy", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const order = await orderModel.all_order_dahuy(makh);
   var total = 0;
   for (let i = 0; i < order.length; i++) {
@@ -229,7 +228,7 @@ router.get("/profile/dahuy", restrict.user, async function (req, res) {
 //sua thông tin tài khoản khách hàng
 router.get("/profile/edit", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const rows = await orderModel.single_kh(makh);
   const edit = rows[0];
   console.log("edit", edit);
@@ -238,9 +237,9 @@ router.get("/profile/edit", restrict.user, async function (req, res) {
 //cập nhật thông tin tài khoản khách hàng
 router.post("/profile/edit", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const entity = {
-    MaKH: makh,
+    makh: makh,
     tenkh: req.body.tenkh,
     username: req.body.username,
     email: req.body.email,
@@ -252,7 +251,7 @@ router.post("/profile/edit", restrict.user, async function (req, res) {
 //sửa thông tin địa chỉ tài khoản khách hàng
 router.get("/profile/address", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const rows = await orderModel.single_kh(makh);
   const edit = rows[0];
   res.render("vwaccount/edit_address", { edit: edit });
@@ -260,9 +259,9 @@ router.get("/profile/address", restrict.user, async function (req, res) {
 //cập nhật đổi thông tin địa chỉ khách hàng
 router.post("/profile/address", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const entity = {
-    MaKH: makh,
+    makh: makh,
     diachi: req.body.diachi,
     phuong_xa: req.body.phuong_xa,
     quan_huyen: req.body.quan_huyen,
@@ -274,7 +273,7 @@ router.post("/profile/address", restrict.user, async function (req, res) {
 //sua thông tin mật khẩu khách hàng
 router.get("/profile/password", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const rows = await orderModel.single_kh(makh);
   const edit = rows[0];
   res.render("vwaccount/edit_password", { edit: edit });
@@ -282,11 +281,11 @@ router.get("/profile/password", restrict.user, async function (req, res) {
 //cập nhật đổi mật khẩu khách hàng
 router.post("/profile/password", restrict.user, async function (req, res) {
   const user = req.session.authUser;
-  const makh = user.MaKH;
+  const makh = user.makh;
   const salt = bcrypt.genSaltSync(10);
   const password_hash = bcrypt.hashSync(req.body.password, salt);
   const entity = {
-    MaKH: makh,
+    makh: makh,
     password: password_hash,
   };
   await orderModel.update_khachhang(entity);

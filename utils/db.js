@@ -1,5 +1,6 @@
-const mysql = require("mysql");
-const config = require("../config/default.json");
+
+const pool = require("../config/database.js");
+
 //kết nối dữ liệu
 const tbl_sp = "sanpham";
 const tbl_spct = "sanphamct";
@@ -8,8 +9,6 @@ const tbl_qt = "quantri";
 const tbl_kh = "khachhang";
 const tbl_hoadon = "hoadon";
 const tbl_chitiethd = "chitiethd";
-
-const pool = mysql.createPool(config.mysql);
 
 module.exports = {
   load: function (sql) {
@@ -34,7 +33,7 @@ module.exports = {
       });
     });
   },
-  
+
   //them products/////////////////////
   insert_pro: function (table, entity) {
     return new Promise(function (resolve, reject) {
@@ -47,10 +46,10 @@ module.exports = {
       });
     });
   },
-   //them nhieu hinh anh anhct/////////////////////
-   insert_mutilfile: function (entity) {
+  //them nhieu hinh anh anhct/////////////////////
+  insert_mutilfile: function (entity) {
     return new Promise(function (resolve, reject) {
-      const sql = `insert into anhct(MaSP, anh_ten) VALUES ?`;
+      const sql = `insert into anhct(masp, anh_ten) VALUES ?`;
       pool.query(sql, [entity], function (error, results) {
         if (error) {
           return reject(error);
@@ -123,7 +122,7 @@ module.exports = {
   patch_gg: function (table, entity, condition) {
     return new Promise(function (resolve, reject) {
       const sql = "update giamgia set ? where ?";
-      pool.query(sql, [entity,condition], function (error, results) {
+      pool.query(sql, [entity, condition], function (error, results) {
         if (error) {
           return reject(error);
         }
@@ -133,7 +132,7 @@ module.exports = {
   },
   //delete giamgia
   del_gg: function (table, condition) {
-    return new Promise(function (resolve , reject) {
+    return new Promise(function (resolve, reject) {
       const sql = "delete from giamgia where ?";
       pool.query(sql, condition, function (error, results) {
         if (error) {
@@ -294,7 +293,7 @@ module.exports = {
   patch_spct: function (table, entity, condition) {
     return new Promise(function (resolve, reject) {
       const sql = "update sanphamct set ? where ?";
-      pool.query(sql, [entity,condition], function (error, results) {
+      pool.query(sql, [entity, condition], function (error, results) {
         if (error) {
           return reject(error);
         }
